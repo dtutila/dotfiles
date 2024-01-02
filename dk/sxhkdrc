@@ -6,7 +6,7 @@ super + p
   rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 # web browser
 super + b
-  /opt/firefox/firefox
+  /opt/firefox
   
 # file manager
 super + f
