@@ -6,20 +6,20 @@ super + p
   rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 # web browser
 super + b
-  /opt/firefox
+  firefox
   
 # file manager
 super + f
- nautilus
+ pcmanfm
   
 super + w
 	librewolf
 
 super + Return
-	alacritty
+ kitty	
 
 super + g
-  google-chrome-stable
+  chromium
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -65,13 +65,16 @@ XF86Calculator
         gnome-calculator
 
 XF86AudioRaiseVolume
-        amixer sset Master 2%+
+	wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+
+        #amixer sset Master 2%+
 
 XF86AudioLowerVolume
-        amixer sset Master 4%-
+   wpctl set-volume @DEFAULT_AUDIO_SINK@ 4%-
+        #amixer sset Master 4%-
 
 XF86AudioMute
-	amixer sset Master 1+ toggle
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+	#amixer sset Master 1+ toggle
 
 XF86AudioNext
 	playerctl next
@@ -88,8 +91,9 @@ XF86AudioPrev
 	xbacklight {+10,-10}
 
 # alt volume keys
-super + {Insert,Delete}
-	pamixer {-i,-d} 2
+#super + {Insert,Delete}
+#	wpctl set-volume @DEFAULT_AUDIO_SINK@ {2%+,4%-}
+	#pamixer {-i,-d} 2
 
 
 
