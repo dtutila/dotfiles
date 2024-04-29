@@ -34,7 +34,7 @@ import subprocess
 
 from libqtile import hook
 #from qtile_extras import widget
-from qtile_extras.widget.decorations import BorderDecoration
+#from qtile_extras.widget.decorations import BorderDecoration
 
 
 @hook.subscribe.startup_once
@@ -204,22 +204,22 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
-    Key([], "XF86AudioLowerVolume", 
-        lazy.spawn("amixer sset Master 2%-"), 
-        desc="Lower Volume by 2%"
-        ),
-    Key([], "XF86AudioRaiseVolume", 
-        lazy.spawn("amixer sset Master 2%+"), 
-        desc="Raise Volume by 2%"),
-    Key([], "XF86AudioMute", 
-        lazy.spawn("amixer sset Master 1+ toggle"), 
-        desc="Mute/Unmute Volume"),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
+    #Key([], "XF86AudioLowerVolume", 
+    #    lazy.spawn("amixer sset Master 2%-"), 
+    #    desc="Lower Volume by 2%"
+    #    ),
+    #Key([], "XF86AudioRaiseVolume", 
+    #    lazy.spawn("amixer sset Master 2%+"), 
+    #    desc="Raise Volume by 2%"),
+    #Key([], "XF86AudioMute", 
+    #    lazy.spawn("amixer sset Master 1+ toggle"), 
+    #    desc="Mute/Unmute Volume"),
+    #Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
 
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
+    #Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
 
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),      
-    Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),      
+    #Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),      
+    #Key([], "XF86Calculator", lazy.spawn("gnome-calculator"), desc="Calculator"),      
        # Switch focus of monitors
     Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
     Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
@@ -237,32 +237,65 @@ keys = [
 # end of keys
 
 #groups = [Group(i) for i in ["", "", "", "", "阮", "", "", "", ""]]
-groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]]
-group_hotkeys = "123456789"
+#groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]]
+groups = [
+    # Screen affinity here is used to make
+    # sure the groups startup on the right screens
+    Group(name="1", screen_affinity=0),
+    Group(name="2", screen_affinity=0),
+    Group(name="3", screen_affinity=0),
+    Group(name="4", screen_affinity=0),
+    Group(name="5", screen_affinity=0),
+    Group(name="6", screen_affinity=1),
+    Group(name="7", screen_affinity=1),
+    Group(name="8", screen_affinity=1),
+    Group(name="9", screen_affinity=1),
+    Group(name="0", screen_affinity=1),
+]
+
+group_hotkeys = "1234567890"
+
+def go_to_group(name: str):
+    def _inner(qtile):
+        if len(qtile.screens) == 1:
+            qtile.groups_map[name].toscreen()
+            return
+
+        if name in '123':
+            qtile.focus_screen(0)
+            qtile.groups_map[name].toscreen()
+        else:
+            qtile.focus_screen(1)
+            qtile.groups_map[name].toscreen()
+
+    return _inner
 
 for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
+    keys.append(Key([mod], i.name, lazy.function(go_to_group(i.name))))
+
+#for i in groups:
+#    keys.extend(
+#        [
+#            # mod1 + letter of group = switch to group
+#            Key(
+#                [mod],
+#                i.name,
+#                lazy.group[i.name].toscreen(),
+#                desc="Switch to group {}".format(i.name),
+#            ),
+#            # mod1 + shift + letter of group = switch to & move focused window to group
+#            Key(
+#                [mod, "shift"],
+#                i.name,
+#                lazy.window.togroup(i.name, switch_group=True),
+#                desc="Switch to & move focused window to group {}".format(i.name),
+#            ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             #     desc="move focused window to group {}".format(i.name)),
-        ]
-    )
+#        ]
+#    )
 
 ### LAYOUTS ###
 # Some settings that I use on almost every layout, which saves us
