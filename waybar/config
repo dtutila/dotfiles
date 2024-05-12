@@ -31,7 +31,7 @@
 		"3": "",
 		"4": "",
 		"5": "",
-        "6": "",
+    "6": "",
 		"7": "",
 		"8": "",
 		"9": "",
@@ -122,5 +122,19 @@
 	"on-click-left": "pavucontrol",
 	"input": true
 
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+	  "max-volume": 100,
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-right-click": "foot -e alsamixer",
+	  "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
   },
 }
