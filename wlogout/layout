@@ -1,33 +1,31 @@
 {
     "label" : "lock",
-    "action" : "~/.config/hypr/scripts/lock.sh",
+    "action" : "swaylock",
     "text" : "Lock",
     "keybind" : "l"
 }
-{
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
-    "keybind" : "r"
-}
-{
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
-}
+
 {
     "label" : "logout",
     "action" : "hyprctl dispatch exit 0",
     "text" : "Logout",
     "keybind" : "e"
 }
+
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
+    "action" : "swaylock -f && systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
+
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+
 {
     "label" : "hibernate",
     "action" : "systemctl hibernate",
@@ -35,3 +33,9 @@
     "keybind" : "h"
 }
 
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
