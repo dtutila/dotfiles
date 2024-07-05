@@ -7,7 +7,7 @@
 
 "modules-left": ["hyprland/workspaces", "hyprland/window"],
 "modules-center": ["clock"],
-"modules-right":  ["disk","cpu","memory","pulseaudio", "tray"],
+"modules-right":  ["disk","cpu","memory","wireplumber", "tray"],
 
 "hyprland/window": {
     "max-length": 120,
