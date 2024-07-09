@@ -25,42 +25,42 @@ button:focus {
 }
 
 #lock {
-    background-image: image(url("./lock.png"));
+    background-image: image(url("./icons/lock_white.png"));
 }
 #lock:focus {
-    background-image: image(url("./lock-hover.png"));
+    background-image: image(url("./icons/lock_black.png"));
 }
 
 #logout {
-    background-image: image(url("./logout.png"));
+    background-image: image(url("./icons/logout_white.png"));
 }
 #logout:focus {
-    background-image: image(url("./logout-hover.png"));
+    background-image: image(url("./icons/lock_black.png"));
 }
 
 #suspend {
-    background-image: image(url("./sleep.png"));
+    background-image: image(url("./icons/suspend_white.png"));
 }
 #suspend:focus {
-    background-image: image(url("./sleep-hover.png"));
+    background-image: image(url("./icons/suspend_black.png"));
 }
 
 #shutdown {
-    background-image: image(url("./power.png"));
+    background-image: image(url("./icons/shutdown_white.png"));
 }
 #shutdown:focus {
-    background-image: image(url("./power-hover.png"));
+    background-image: image(url("./icons/suspend_black.png"));
 }
 
 #reboot {
-    background-image: image(url("./restart.png"));
+    background-image: image(url("./icons/reboot_white.png"));
 }
 #reboot:focus {
-    background-image: image(url("./restart-hover.png"));
+    background-image: image(url("./icons/reboot_black.png"));
 }
 #hibernate {
-    background-image: image(url("./hibernate.png"));
+    background-image: image(url("./icons/hibernate_white.png"));
 }
 #hibernate:focus {
-    background-image: image(url("./hibernate-hover.png"));
+    background-image: image(url("./icons/hibernate_black.png"));
 }
