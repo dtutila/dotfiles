@@ -24,14 +24,22 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+#zinit light zsh-users/zsh-syntax-highlighting
+#zinit light zsh-users/zsh-completions
+#zinit light zsh-users/zsh-autosuggestions
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+    blockf \
+    zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+    
 zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::git
-zinit snippet OMZP::sudo
+#zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::asdf
 
@@ -131,7 +139,14 @@ alias tree='exa -T'
 
 
 # Shell integrations
-#eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+. ~/.asdf/plugins/java/set-java-home.zsh
+#. ~/.asdf/installs/rust/1.82.0/env
+. ~/.asdf/plugins/golang/set-env.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #export _JAVA_AWT_WM_NONREPARENTING=1
