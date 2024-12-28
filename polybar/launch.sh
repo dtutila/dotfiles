@@ -10,5 +10,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch the bar
 #polybar -q main -c "$DIR"/config.ini &
 polybar  -q minimal-hdmi -c "$DIR"/minimal.ini &
-polybar  -q minimal-dp -c "$DIR"/minimal.ini &
-
+polybar  -q minimal-dp -c "$DIR"/dp.ini &

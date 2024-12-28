@@ -1,6 +1,29 @@
-# authorize polkit-gnome
+
+exec_always {
+    exec export XDG_CURRENT_DESKTOP=sway
+    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    exec systemctl --user start xdg-desktop-portal-wlr
+    exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+}
+
 #exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-mate-authentication-agent-1
+exec /usr/bin/gnome-keyring-daemon --start --components=pkcs11
+exec /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec /usr/bin/gnome-keyring-daemon --start --components=ssh
 
 # notifications
 exec dunst
 
+exec nm-applet
+
+# Lock screen
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+exec ~/Applications/pcloud

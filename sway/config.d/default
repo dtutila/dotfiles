@@ -1,3 +1,7 @@
+
+output DP-1 pos 0 0
+output HDMI-A-1 pos 2560 360
+
 # using the super key
 set $mod Mod4
 
@@ -5,6 +9,8 @@ set $mod Mod4
 set $term kitty
 #set $menu rofi -show drun
 set $menu rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+set $dp1 DP-1
+set $hdmi1 HDMI-A-1
 
 # wallpaper
 # output * background ~/.config/backgrounds/debdino.png fill
@@ -14,14 +20,10 @@ output * background ~/.config/wallpapers/cloudy-warm-day.jpg fill
 bindsym $mod+Return exec $term
 ##bindsym $mod+Shift+Return exec kitty
 bindsym $mod+p exec $menu
-bindsym $mod+f exec thunar
+bindsym $mod+space exec $menu
+bindsym $mod+f exec nautilus
 bindsym $mod+b exec firefox
-##bindsym $mod+e exec geany
-##bindsym $mod+g exec swaymsg "workspace 8; exec gimp"
-##bindsym $mod+d exec swaymsg "workspace 9; exec Discord"
-##bindsym $mod+o exec swaymsg "workspace 10; exec obs"
-##bindsym $mod+r exec tilix -e ranger
-##bindsym $mod+v exec tilix -e nvim
+
 
 # rules
 for_window [app_id="pavucontrol"] floating enable
@@ -30,11 +32,14 @@ for_window [app_id="galculator"] floating enable
 for_window [app_id="nwg-look"] floating enable
 for_window [app_id="mpv"] floating enable, resize set 1280 720
 for_window [app_id="qimgv"] floating enable, resize set 1280 720
+# for_window [title="Updates Available"] floating enable
+for_window [title="Calculator"] floating enable
 
 # windows
 bindsym $mod+q kill
 bindsym $mod+Shift+r reload; exec notify-send 'sway' 'Restarted'
-bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Comfirm exit!' -B 'Logout' 'swaymsg exit'
+bindsym $mod+l exec wlogout
 
 # move focus
 bindsym $mod+Left focus left
@@ -56,44 +61,127 @@ bindsym $mod+Ctrl+Right resize grow width 20px
 ##bindsym $mod+shift+k exec ~/bin/changevolume up
 ##bindsym $mod+shift+j exec ~/bin/changevolume down
 ##bindsym $mod+shift+m exec ~/bin/changevolume mute
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+
+
+# Playback
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86Calculator exec gnome-calculator
+
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+Shift+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+t floating toggle
+
 
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-#
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Alt+1 workspace number 11
+bindsym $mod+Alt+2 workspace number 12
+bindsym $mod+Alt+3 workspace number 13
+bindsym $mod+Alt+4 workspace number 14
+bindsym $mod+Alt+5 workspace number 15
+bindsym $mod+Alt+6 workspace number 16
+bindsym $mod+Alt+7 workspace number 17
+bindsym $mod+Alt+8 workspace number 18
+bindsym $mod+Alt+9 workspace number 19
+bindsym $mod+Alt+0 workspace number 20
+bindsym $mod+minus workspace number 21
+bindsym $mod+equal workspace number 22
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+Alt+1 move container to workspace number 11
+bindsym $mod+Shift+Alt+2 move container to workspace number 12
+bindsym $mod+Shift+Alt+3 move container to workspace number 13
+bindsym $mod+Shift+Alt+4 move container to workspace number 14
+bindsym $mod+Shift+Alt+5 move container to workspace number 15
+bindsym $mod+Shift+Alt+6 move container to workspace number 16
+bindsym $mod+Shift+Alt+7 move container to workspace number 17
+bindsym $mod+Shift+Alt+8 move container to workspace number 18
+bindsym $mod+Shift+Alt+9 move container to workspace number 19
+bindsym $mod+Shift+Alt+0 move container to workspace number 20
+bindsym $mod+Shift+minus move container to workspace number 21
+bindsym $mod+Shift+equal move container to workspace number 22
+
+
+
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+
+workspace 1 output $dp1
+workspace 2 output $dp1
+workspace 3 output $dp1
+workspace 4 output $dp1
+workspace 5 output $dp1
+workspace 6 output $dp1
+workspace 7 output $dp1
+workspace 8 output $dp1
+workspace 9 output $dp1
+workspace 10 output $dp1
+workspace 11 output $hdmi1
+workspace 12 output $hdmi1
+workspace 13 output $hdmi1
+workspace 14 output $hdmi1
+workspace 15 output $hdmi1
+workspace 16 output $hdmi1
+workspace 17 output $hdmi1
+workspace 18 output $hdmi1
+workspace 19 output $hdmi1
+workspace 20 output $hdmi1
+workspace 21 output $hdmi1
+workspace 22 output $hdmi1
+
+
+
 # Screen Capture
-bindsym Print exec grim ~/Pictures/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Image saved to ~/Pictures'
-bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/$(date +"%Y-%m-%d_%H-%M-%S").png; exec notify-send 'Grim' 'Selected image saved to ~/Pictures'
+bindsym Print exec ~/bin/./screenshoot.sh
+bindsym $mod+Print exec ~/bin/./screenshoot.sh
 
 ### Gaps
-gaps inner 4 
+gaps inner 1
 gaps outer 1
 default_border pixel 2
+
+### Layout
+# layout 
+
 
 ### Borders
 client.focused          #a5adcb #a5adcb #24283b #a5adcb #a5adcb
@@ -104,7 +192,6 @@ client.placeholder      #24283b #24283b #a5adcb #24283b #24283b
 client.background       #24283b
 
 bar { 
-     swaybar_command waybar
-     }
-#GTK issue
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    swaybar_command waybar
+}
+

@@ -4,29 +4,35 @@
 # launcher
 super + p
   rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+
+super + space
+  rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 # web browser
 super + b
   firefox
   
 # file manager
 super + f
- pcmanfm
+ nautilus
   
 super + w
-	librewolf
+	firefox
 
 super + Return
  kitty	
 
 super + g
-  chromium
+  chromium-stable
+
+super + enter
+  kitty
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
-super + x
-  ~/bin/./power 
+# super + x
+#   ~/bin/./power 
 
 #########
 # Scrot #
