@@ -8,7 +8,7 @@ exec_always {
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 }
 
-#exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+# keyring and polkit
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 exec /usr/bin/gnome-keyring-daemon --start --components=secrets
@@ -17,6 +17,10 @@ exec /usr/bin/gnome-keyring-daemon --start --components=ssh
 # notifications
 exec dunst
 
+# bluetooth
+exec blueman-applet
+
+# network manager
 exec nm-applet
 
 # Lock screen
@@ -26,4 +30,5 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
 
+#cloud storage
 exec ~/Applications/pcloud

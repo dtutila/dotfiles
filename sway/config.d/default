@@ -1,5 +1,4 @@
-
-output DP-1 pos 0 0
+output DP-1 pos 0 0 mode 2560x1440@120Hz
 output HDMI-A-1 pos 2560 360
 
 # using the super key
@@ -11,6 +10,7 @@ set $term kitty
 set $menu rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
 set $dp1 DP-1
 set $hdmi1 HDMI-A-1
+set $screenshooter screenshoot2.sh
 
 # wallpaper
 # output * background ~/.config/backgrounds/debdino.png fill
@@ -32,8 +32,11 @@ for_window [app_id="galculator"] floating enable
 for_window [app_id="nwg-look"] floating enable
 for_window [app_id="mpv"] floating enable, resize set 1280 720
 for_window [app_id="qimgv"] floating enable, resize set 1280 720
-# for_window [title="Updates Available"] floating enable
+for_window [title="Updates Available"] floating enable
 for_window [title="Calculator"] floating enable
+for_window [title="Find/Replace"] floating enable,resize set 800 600
+for_window [title="Open file"] floating enable, resize set 800 600
+for_window [title="Save file"] floating enable, resize set 800 600
 
 # windows
 bindsym $mod+q kill
@@ -87,6 +90,9 @@ bindsym $mod+Shift+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+t floating toggle
 
+# Screen Capture
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+t exec grim -g "$(slurp)" - | swappy -f -
 
 #
 # Workspaces:
@@ -170,9 +176,8 @@ workspace 22 output $hdmi1
 
 
 
-# Screen Capture
-bindsym Print exec ~/bin/./screenshoot.sh
-bindsym $mod+Print exec ~/bin/./screenshoot.sh
+
+
 
 ### Gaps
 gaps inner 1
@@ -194,4 +199,3 @@ client.background       #24283b
 bar { 
     swaybar_command waybar
 }
-
