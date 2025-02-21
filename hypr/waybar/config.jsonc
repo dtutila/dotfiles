@@ -2,10 +2,11 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network","cpu", "memory", "disk", "pulseaudio", "clock", "tray"],
+  "modules-right": ["cpu", "memory", "disk", "pulseaudio", "clock", "tray"],
   "clock": {
     "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "gnome-calendar"
   },
   "battery": {
     "states": {
