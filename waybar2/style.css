@@ -1,4 +1,4 @@
-@import "gruvbox.css"; 
+@import "mocha.css"; 
 
 * {
     font-family: Roboto Mono Nerd Font;
@@ -9,8 +9,8 @@
 
 window#waybar {
     background: transparent;
-    background-color: @base;
-    color: @text;
+    background-color: @crust;
+    color: @overlay0;
     transition-property: background-color;
     transition-duration: 0.1s;
     border-bottom: 0px solid @overlay1;
@@ -30,8 +30,8 @@ button {
 
 button:hover {
     background: inherit;
-    color: @aqua;
-    border-top: 2px solid @aqua;
+    color: @mauve;
+    border-top: 2px solid @mauve;
 }
 
 #workspaces button {
@@ -39,21 +39,19 @@ button:hover {
 }
 
 #workspaces button.focused {
-    /* background-color: rgba(0, 0, 0, 0.3); */
     background-color: rgba(0, 0, 0, 0.3);
-    color: @bright_orange;
-    border-top: 2px solid @bright_yellow;
+    color: @rosewater;
+    border-top: 2px solid @rosewater;
 }
 
 #workspaces button.active {
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    background-color: rgba(141, 46, 46, 0.3);
-    color: @aqua;
-    border-top: 2px solid @bright_yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @mauve;
+    border-top: 2px solid @mauve;
 }
 
 #workspaces button.urgent {
-    background-color: @bright_red;
+    background-color: #eb4d4b;
 }
 
 #pulseaudio,
@@ -78,13 +76,13 @@ button:hover {
 }
 
 #clock {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
+    color: @maroon;
+    border-bottom: 2px solid @maroon;
 }
 
 #clock.date {
-    color: @aqua;
-    border-bottom: 2px solid @aqua;
+    color: @mauve;
+    border-bottom: 2px solid @mauve;
 }
 
 #pulseaudio {
@@ -99,11 +97,11 @@ button:hover {
 
 #idle_inhibitor {
     margin-right: 12px;
-    color: @green;
+    color: #7cb342;
 }
 
 #idle_inhibitor.activated {
-    color: @bright_red;
+    color: @red;
 }
 
 #cpu {
@@ -111,13 +109,13 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 #memory {
-    color: @bright_blue;
-    border-bottom: 2px solid @bright_blue;
+    color: @sky;
+    border-bottom: 2px solid @sky;
 }
 
 #disk {
-    color: @aqua;
-    border-bottom: 2px solid @aqua;
+    color: @teal;
+    border-bottom: 2px solid @teal;
 }
 
 
@@ -132,7 +130,7 @@ button:hover {
 }
 
 #custom-vpn {
-    color: @aqua;
+    color: @lavender;
     border-radius: 15px;
     padding-left: 6px;
     padding-right: 6px;

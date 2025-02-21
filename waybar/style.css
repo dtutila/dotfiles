@@ -1,4 +1,4 @@
-@import "mocha.css"; 
+@import "gruvbox.css"; 
 
 * {
     font-family: Roboto Mono Nerd Font;
@@ -9,8 +9,8 @@
 
 window#waybar {
     background: transparent;
-    background-color: @crust;
-    color: @overlay0;
+    background-color: @base;
+    color: @text;
     transition-property: background-color;
     transition-duration: 0.1s;
     border-bottom: 0px solid @overlay1;
@@ -18,8 +18,8 @@ window#waybar {
 
 #window {
     margin: 1px;
-    padding-left: 8;
-    padding-right: 8;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 button {
@@ -30,8 +30,8 @@ button {
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @aqua;
+    border-top: 2px solid @aqua;
 }
 
 #workspaces button {
@@ -39,19 +39,21 @@ button:hover {
 }
 
 #workspaces button.focused {
+    /* background-color: rgba(0, 0, 0, 0.3); */
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color:  @bright_blue;   
+    border-top: 2px solid @bright_blue;
 }
 
 #workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    background-color: rgba(1, 17, 8, 0.3);
+    color: @bright_blue;
+    border-top: 2px solid @bright_blue;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @bright_red;
 }
 
 #pulseaudio,
@@ -76,13 +78,13 @@ button:hover {
 }
 
 #clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
+    color: @yellow;
+    border-bottom: 2px solid @yellow;
 }
 
 #clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
+    color: @aqua;
+    border-bottom: 2px solid @aqua;
 }
 
 #pulseaudio {
@@ -97,11 +99,11 @@ button:hover {
 
 #idle_inhibitor {
     margin-right: 12px;
-    color: #7cb342;
+    color: @green;
 }
 
 #idle_inhibitor.activated {
-    color: @red;
+    color: @bright_red;
 }
 
 #cpu {
@@ -109,13 +111,13 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 #memory {
-    color: @sky;
-    border-bottom: 2px solid @sky;
+    color: @bright_blue;
+    border-bottom: 2px solid @bright_blue;
 }
 
 #disk {
-    color: @teal;
-    border-bottom: 2px solid @teal;
+    color: @aqua;
+    border-bottom: 2px solid @aqua;
 }
 
 
@@ -130,7 +132,7 @@ button:hover {
 }
 
 #custom-vpn {
-    color: @lavender;
+    color: @aqua;
     border-radius: 15px;
     padding-left: 6px;
     padding-right: 6px;

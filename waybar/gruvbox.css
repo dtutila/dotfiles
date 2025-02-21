@@ -30,7 +30,7 @@
 @define-color bright_orange #fe8019;
 
 /* Additional semantic colors for waybar */
-@define-color text @fg1;
+@define-color text @aqua;
 @define-color subtext1 @fg2;
 @define-color subtext0 @fg3;
 @define-color overlay2 @bg4;
