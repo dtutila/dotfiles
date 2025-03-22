@@ -1,7 +1,4 @@
 #
-waybar --config=~/.config/hypr/waybar/config.jsonc &
+xmodmap -e "pointer = 1 2 3"
 
-#
-dunst &
 
-#

@@ -1,0 +1,140 @@
+# source=~/.config/hypr/mocha.conf
+# Set programs that you use
+$terminal = kitty
+$fileManager = nautilus
+#$menu = wofi 
+$menu = rofi -show drun
+$powermenu = wlogout
+$browser = firefox
+$editor = sublime
+
+
+env = XCURSOR_SIZE,24
+env = HYPRCURSOR_SIZE,24
+
+# source = ./environment.conf
+source = ./color.conf
+
+# See https://wiki.hyprland.org/Configuring/Monitors/
+monitor=DP-1, 2560x1440, 0x0, 1
+monitor=HDMI-A-1, 1920x1080, 2560x360, 1
+
+misc {
+    allow_session_lock_restore = true
+}
+
+# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    special_fallthrough = yes
+
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = false
+    }
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+}
+
+# Cubic Bezier Curve Visualiser: https://www.cssportal.com/css-cubic-bezier-generator/
+animations {
+    enabled = true
+
+    # Updated bezier curves for instant-like animations
+    bezier = overshot, 0.7, 0.0, 0.3, 1.0
+    bezier = smooth, 0.8, 0.0, 0.2, 1.0
+    bezier = snapback, 0.9, 0.0, 0.1, 1.0
+    bezier = curve, 0.9, 0.0, 0.1, 1.0
+
+    # Reduced timing to 3 (from 7) for snappier animations
+    animation = windows, 1, 3, overshot, slide
+    animation = windowsOut, 1, 3, snapback, slide
+    animation = windowsIn, 1, 3, snapback, slide
+    animation = windowsMove, 1, 3, snapback, slide
+    animation = border, 1, 2, default
+    animation = fade, 1, 2, default
+    animation = fadeDim, 1, 2, default
+    animation = workspaces, 1, 3, curve
+}
+
+dwindle {
+    # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+    pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = yes # you probably want this
+}
+
+#master {
+#    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+#    new_is_master = false
+#    mfact = 0.5;
+#}
+
+gestures {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+    workspace_swipe = on
+}
+
+decoration {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+    drop_shadow = no
+    shadow_range = 4
+    shadow_render_power = 3
+    col.shadow = $bg0
+    rounding = 4
+
+    blur {
+        enabled = yes
+        size = 2
+        passes = 3
+        special = no
+        # new_optimizations = on
+    }
+
+    dim_special = 0.0
+}
+general {
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+
+    gaps_in = 1
+    gaps_out = 1
+    border_size = 2
+    # col.active_border = rgb(184, 187, 38) rgb(142, 192, 124) 45deg
+    # col.inactive_border = rgb(60, 56, 54)
+
+  # Fallback colors
+    col.active_border = $active_border
+    col.inactive_border = $inactive_border
+    layout = dwindle
+}
+#source = ~/.hyprland_rice/custom.conf
+source = ./binds.conf
+source = ./workspaces.conf
+
+source = ./windowrules.conf
+source = ./startup.conf
+
+# Example per-device config
+# See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
+device {
+    name = epic-mouse-v1
+    sensitivity = -0.5
+}
+
+
+layerrule = blur, waybar
+layerrule = blur, rofi
+layerrule = blur, gtk-layer-shell
+
+
+xwayland {
+    force_zero_scaling = true
+}
+
+layerrule = noanim, wofi
+

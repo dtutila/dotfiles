@@ -10,6 +10,19 @@ window {
 
 button {
 	border-radius: 0;
+	border-color: #689d6a;
+	text-decoration-color: #d5c4a1;
+	color: #d5c4a1;
+	background-color: #282828;
+	border-style: solid;
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button2 {
+	border-radius: 0;
 	border-color: #8aadf4;
 	text-decoration-color: #cad3f5;
 	color: #cad3f5;
@@ -23,7 +36,7 @@ button {
 
 button:focus, button:active, button:hover {
 	/* 20% Overlay 2, 80% mantle */
-	background-color: rgb(53, 57, 75);
+	background-color: #504945;
 	outline-style: none;
 }
 
