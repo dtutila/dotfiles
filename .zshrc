@@ -142,9 +142,9 @@ alias tree='exa -T'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-. ~/.asdf/plugins/java/set-java-home.zsh
-#. ~/.asdf/installs/rust/1.82.0/env
-. ~/.asdf/plugins/golang/set-env.zsh
+. ~/.asdf/plugins/java/set-java-home.zsh 
+#. ~/.asdf/installs/rust/1.82.0/env 
+. ~/.asdf/plugins/golang/set-env.zsh 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
