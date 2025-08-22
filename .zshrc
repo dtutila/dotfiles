@@ -41,7 +41,7 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 #zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::asdf
+#zinit snippet OMZP::asdf
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -120,11 +120,11 @@ alias vim="nvim"
 alias vi="nvim"
 alias neovim="nvim"
 # Changing "ls" to "exa"
-alias la='exa -al --color=always --group-directories-first' 
-alias ls='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -al --color=always --group-directories-first | egrep "^\."'
+alias la='eza -al --color=always --group-directories-first --icons' 
+alias ls='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l.='eza -al --icons --color=always --group-directories-first | egrep "^\."'
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -135,19 +135,31 @@ alias fgrep='fgrep --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-alias tree='exa -T'
+alias tree='eza -T'
 
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-. ~/.asdf/plugins/java/set-java-home.zsh 
+#. ~/.asdf/plugins/java/set-java-home.zsh 
 #. ~/.asdf/installs/rust/1.82.0/env 
-. ~/.asdf/plugins/golang/set-env.zsh 
+#. ~/.asdf/plugins/golang/set-env.zsh 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
+#nodejs
+export PATH=~/.npm-global/bin:$PATH
+#rust
+. "$HOME/.cargo/env"
+#java
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+
+# GNOME Keyring
+#if [ -n "$DESKTOP_SESSION" ]; then
+#    eval $(gnome-keyring-daemon --start)
+#    export SSH_AUTH_SOCK
+#fi
