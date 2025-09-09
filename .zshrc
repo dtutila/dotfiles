@@ -156,7 +156,8 @@ export PATH=~/.npm-global/bin:$PATH
 #rust
 . "$HOME/.cargo/env"
 #java
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+export JAVA_HOME=~/Applications/jdk21.0.8/
+export PATH=$JAVA_HOME/bin:$PATH
 
 # GNOME Keyring
 #if [ -n "$DESKTOP_SESSION" ]; then

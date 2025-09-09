@@ -1,139 +1,54 @@
-@import "gruvbox.css"; 
+@import "../hyprthemes/current/waybar.css";
 
 * {
-    font-family: Roboto Mono Nerd Font;
-    font-size: 12px;
-    min-height: 0;
-    
+  background-color: @background;
+  color: @foreground;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: CaskaydiaMono Nerd Font;
+  font-size: 12px;
 }
 
-window#waybar {
-    background: transparent;
-    background-color: @base;
-    color: @text;
-    transition-property: background-color;
-    transition-duration: 0.1s;
-    border-bottom: 0px solid @overlay1;
+.modules-left {
+  margin-left: 8px;
 }
 
-#window {
-    margin: 1px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    color: @aqua;
-    border-top: 2px solid @aqua;
+.modules-right {
+  margin-right: 8px;
 }
 
 #workspaces button {
-    padding: 0 4px;
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  font-weight: bold;
 }
 
-#workspaces button.focused {
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    background-color: rgba(0, 0, 0, 0.3);
-    color:  @bright_blue;   
-    border-top: 2px solid @bright_blue;
+#workspaces button.empty {
+  opacity: 0.3;
+  font-weight: lighter;
 }
 
-#workspaces button.active {
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    background-color: rgba(1, 17, 8, 0.3);
-    color: @bright_blue;
-    border-top: 2px solid @bright_blue;
-}
-
-#workspaces button.urgent {
-    background-color: @bright_red;
-}
-
+#tray,
+#cpu,
+#battery,
+#network,
+#bluetooth,
 #pulseaudio,
 #clock,
-#battery,
-#cpu,
 #memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
-#tray,
-#network,
-#mode,
-#scratchpad {
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-left: 2px;
-  margin-right: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
+#custom-omarchy {
+  min-width: 12px;
+  margin: 0 7.5px;
 }
 
-#clock {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
+#custom-expand-icon {
+  margin-right: 7px;
 }
 
-#clock.date {
-    color: @aqua;
-    border-bottom: 2px solid @aqua;
-}
-
-#pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
-}
-
-#network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
-}
-
-#idle_inhibitor {
-    margin-right: 12px;
-    color: @green;
-}
-
-#idle_inhibitor.activated {
-    color: @bright_red;
-}
-
-#cpu {
-    color: @green;
-    border-bottom: 2px solid @green;
-}
-#memory {
-    color: @bright_blue;
-    border-bottom: 2px solid @bright_blue;
-}
-
-#disk {
-    color: @aqua;
-    border-bottom: 2px solid @aqua;
-}
-
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
-}
-
-#custom-vpn {
-    color: @aqua;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
+tooltip {
+  padding: 2px;
 }

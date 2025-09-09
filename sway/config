@@ -1,2 +1,0 @@
-# using directory
-include $HOME/.config/sway/config.d/*
