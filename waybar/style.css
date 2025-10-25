@@ -21,15 +21,20 @@
 
 #workspaces button {
   all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-  font-weight: bold;
+  padding: 0 2px;
+  margin: 0 1px;
+  min-width: 6px;
+  font-weight: lighter;
 }
 
 #workspaces button.empty {
   opacity: 0.3;
   font-weight: lighter;
+}
+
+#workspaces button.active {
+  border-bottom: 2px solid @foreground;
+  font-weight: bold;
 }
 
 #tray,
@@ -40,10 +45,6 @@
 #pulseaudio,
 #clock,
 #memory,
-#custom-omarchy {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
 
 #custom-expand-icon {
   margin-right: 7px;
