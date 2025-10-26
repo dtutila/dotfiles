@@ -55,15 +55,15 @@
             "20": "20",
             "21": "21",
             "22": "22",
-            "active": "󱓻",
+           
             "urgent": "󱓻"
         }
     },
      "cpu": {
-    "format": "{usage}%",
-    "interval": 5,
-    "on-click": "kitty -e btop"
-  },
+        "format": " {usage}%",
+        "interval": 5,
+        "on-click": "kitty -e btop"
+    },
     "memory": {
         "interval": 5,
         "format": "󰍛 {}%",
@@ -91,7 +91,7 @@
 	"nospacing": 1,
     },
     "wireplumber": {
-        "format": "{icon}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "󰂰",
         "nospacing": 1,
         "tooltip-format": "Volume : {volume}%",
