@@ -150,14 +150,14 @@ eval "$(zoxide init --cmd cd zsh)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
+#-- export DOCKER_HOST=unix:///run/user/1000/docker.sock
 #nodejs
-export PATH=~/.npm-global/bin:$PATH
+#-- export PATH=~/.npm-global/bin:$PATH
 #rust
-. "$HOME/.cargo/env"
+#-- . "$HOME/.cargo/env"
 #java
-export JAVA_HOME=~/Applications/jdk21.0.8/
-export PATH=$JAVA_HOME/bin:$PATH
+#-- export JAVA_HOME=~/Applications/jdk21.0.8/
+#-- export PATH=$JAVA_HOME/bin:$PATH
 
 # GNOME Keyring
 #if [ -n "$DESKTOP_SESSION" ]; then
