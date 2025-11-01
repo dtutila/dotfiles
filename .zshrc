@@ -137,7 +137,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias tree='eza -T'
 
-
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -150,7 +149,7 @@ eval "$(zoxide init --cmd cd zsh)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-#-- export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
 #nodejs
 #-- export PATH=~/.npm-global/bin:$PATH
 #rust
@@ -164,3 +163,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #    eval $(gnome-keyring-daemon --start)
 #    export SSH_AUTH_SOCK
 #fi
+#
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+
