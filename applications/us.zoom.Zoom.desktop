@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Zoom W
+Comment=Zoom Video Conference
+GenericName=Zoom Client for Linux
+Exec=flatpak run us.zoom.Zoom --enable-features=WebRTCPipeWireCapturer --password-store="gnome-libsecret" --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto %U
+Icon=/var/li/f/app/us.zoom.Zoom/current/active/files/share/icons/hicolor/128x128/apps/us.zoom.Zoom.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;InstantMessaging;VideoConference;Telephony;
+MimeType=x-scheme-handler/zoommtg;x-scheme-handler/zoomus;x-scheme-handler/tel;x-scheme-handler/callto;x-scheme-handler/zoomphonecall;application/x-zoom
+X-KDE-Protocols=zoommtg;zoomus;tel;callto;zoomphonecall;
+StartupWMClass=zoom

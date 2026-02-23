@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Power Menu
+Comment=Shutdown, reboot, suspend, lock, or logout
+Exec=powermenu.sh
+Icon=system-shutdown
+Terminal=false
+Type=Application
+Categories=System;
+Keywords=power;shutdown;reboot;suspend;lock;logout;
