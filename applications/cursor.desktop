@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Cursor
+Exec=/home/dtutila/Applications/Cursor-2.AppImage --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto
+Icon=/home/dtutila/Applications/cursor.png
+Comment=Cursor IDE
+Type=Application
+Categories=Development;IDE;

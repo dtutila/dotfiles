@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Anypoint Studio
+Exec=env GDK_BACKEND=x11 /home/dtutila/Applications/AnypointStudio/AnypointStudio %u
+Icon=/home/dtutila/Applications/AnypointStudio/icon.xpm
+Comment=Mulesoft IDE
+Type=Application
+MimeType=x-scheme-handler/eclipse+command;
+Categories=Development;IDE;

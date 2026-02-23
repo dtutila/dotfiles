@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Postman
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=REST Client
+Comment=REST Client
+MimeType=x-scheme-handler/postman;
+Exec=/home/dtutila/Applications/Postman/Postman --password-store="gnome-libsecret" --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto %U
+StartupNotify=true
+Terminal=false
+Icon=/home/dtutila/Applications/Postman/app/resources/app/assets/icon.png
+Type=Application
+Categories=Network;REST;

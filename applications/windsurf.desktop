@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Windsurf
+Exec=/home/dtutila/Applications/Windsurf/windsurf --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto
+Icon=/home/dtutila/Applications/Windsurf/resources/app/resources/linux/code.png
+Comment=VSCode IDE
+Type=Application
+Categories=Development;IDE;
