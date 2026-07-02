@@ -51,6 +51,12 @@ hl.bind(mainMod .. " + X",          hl.dsp.exec_cmd(noctCall .. "controlCenter t
 hl.bind(mainMod .. " + Space",      hl.dsp.exec_cmd(noctCall .. "launcher toggle"))
 hl.bind(mainMod .. " + period",     hl.dsp.exec_cmd(noctCall .. "launcher emoji"))
 
+-- Web apps
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(WEB_APP .. '="https://web.whatsapp.com/"'))
+hl.bind(mainMod .. " + I",         hl.dsp.exec_cmd(WEB_APP .. '="https://claude.ai/"'))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd(WEB_APP .. '="https://chatgpt.com/"'))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(WEB_APP .. '="https://x.com/"'))
+
 ---------------------------
 ---- HARDWARE CONTROLS ----
 ---------------------------

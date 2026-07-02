@@ -6,4 +6,4 @@ BROWSER      = "firefox"
 EDITOR       = "subl --new-window"
 CALCULATOR   = "gnome-calculator"
 CHROMIUM     = 'chromium --password-store="gnome-libsecret"'
-WEB_APP      = 'chromium --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/chromium" --profile-directory="Default" --app '
+WEB_APP      = 'chromium  --new-window --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/chromium" --profile-directory="Profile 1" --app'
