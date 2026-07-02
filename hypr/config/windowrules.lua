@@ -54,6 +54,9 @@ hl.window_rule({ match = { class = "^(vesktop|discord)$" }, primaryWorkspace })
 hl.window_rule({ match = { class = "^(.*[Cc]alculator.*)$" }, float = true, size = "380 616" })
 hl.window_rule({ match = { class = "^(org.kde.keditfiletype)$" }, float = true })
 hl.window_rule({ match = { class = "^(org.kde.ark)$" }, size = "(monitor_w*0.40) (monitor_h*0.40)" })
+
+-- Float file pickers (portal-based browse dialogs)
+hl.window_rule({ match = { class = "^(xdg-desktop-portal-hyprland)$" }, float = true })
 hl.window_rule({
     match = {
         class = "^(org.kde.dolphin)$",
