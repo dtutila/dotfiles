@@ -88,6 +88,12 @@ for _, m in ipairs(floatApps) do hl.window_rule({ match = m, float = true }) end
 
 hl.window_rule({ match = { float = true }, move = "50% 50%" })
 
+-- Windscribe — float & center the VPN window.
+-- No size rule on purpose: the window collapses/expands to its own height,
+-- so we let the app control its dimensions and just float + center it.
+-- Placed after the "float -> 50% 50%" catch-all above so `center` wins.
+hl.window_rule({ match = { class = "^(Windscribe)$" }, float = true, center = true })
+
 -- Float Common Modals
 local modalMatches = {
     { title = "^(Open|Authentication Required|Add Folder to Workspace|Choose Files|Save As|Confirm to replace files|File Operation Progress)$" },
