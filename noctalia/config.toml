@@ -1,0 +1,25 @@
+# Noctalia 5 shell configuration.
+#
+# Noctalia merges, in order:
+#   1. every *.toml in the config dir (~/.config/noctalia -> this repo)
+#   2. ~/.local/state/noctalia/settings.toml, which OVERRIDES the files here
+#
+# The Settings UI only ever writes to that state file, so UI tweaks shadow this
+# config until they are folded back in:
+#
+#   noctalia config export merged > ~/.config/noctalia/config.toml   # review the diff
+#   $EDITOR ~/.local/state/noctalia/settings.toml                    # drop what moved
+#
+# Only values that differ from the shipped defaults live here. Useful commands:
+#   noctalia config export full   # complete resolved config
+#   noctalia config validate      # syntax + unknown keys + bad values
+
+[bar.default]
+background_opacity = 0.5  # default 1.0
+thickness = 32            # default 34
+
+[shell.animation]
+speed = 0.5               # default 1.0
+
+[theme]
+builtin = "Tokyo-Night"   # default "Noctalia"

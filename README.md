@@ -10,7 +10,7 @@ kitty, and tmux.
 | Path | What it configures |
 | --- | --- |
 | `hypr/` | Hyprland, configured with the Lua DSL (`hl.*`). Split into `config/*.lua` modules loaded by `hyprland.lua`. |
-| `noctalia/` | Noctalia shell (bar, panels, colorschemes). Noctalia 5 keeps its live config in `~/.local/state/noctalia/settings.toml`; the `*.json` files and `plugins/` here are leftovers from Noctalia 4 and are no longer read. |
+| `noctalia/` | Noctalia 5 shell (bar, panels, theming) — `config.toml`. See [Noctalia config layering](#noctalia-config-layering). |
 | `kitty/` | kitty terminal config and themes. |
 | `.tmux.conf` | tmux configuration. |
 | `bin/screenshot.sh` | Region screenshot via `hyprshot` + `satty` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
@@ -27,6 +27,28 @@ kitty, and tmux.
 - **Default apps** — kitty (terminal), nautilus (files), firefox (browser),
   Sublime Text (editor), chromium (web apps).
 - **Autostart** — launches the Noctalia shell (`noctalia --daemon`) and the polkit agent.
+
+### Noctalia config layering
+
+Noctalia 5 resolves its settings in two layers:
+
+1. every `*.toml` in the config dir (`~/.config/noctalia` → this repo), then
+2. `~/.local/state/noctalia/settings.toml`, which **overrides** them.
+
+The Settings UI only ever writes to that state file, so anything changed in the UI
+shadows `noctalia/config.toml` until it is folded back into the repo:
+
+```sh
+noctalia config export merged     # what layer 1 + layer 2 resolve to
+noctalia config export full       # the same, with every default filled in
+noctalia config validate          # syntax, unknown keys, bad values
+```
+
+Move the new keys into `noctalia/config.toml`, then delete them from the state file
+(keep `config_version`, and leave the generated `lockscreen_widgets` and `wallpaper`
+blocks alone — those are runtime state, not intent). `config.toml` deliberately holds
+only what differs from the shipped defaults. Noctalia reads *every* `*.toml` in the
+directory, so it can be split into modules later if it grows.
 
 ## Requirements
 
