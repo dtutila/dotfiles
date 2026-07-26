@@ -2,7 +2,7 @@
 
 Personal configuration for a [Hyprland](https://hypr.land/) desktop on
 [CachyOS](https://cachyos.org/) (Arch-based), with the
-[Noctalia](https://github.com/noctalia-dev/noctalia-shell) Quickshell bar,
+[Noctalia](https://github.com/noctalia-dev/noctalia-shell) 5 bar,
 kitty, and tmux.
 
 ## Components
@@ -10,7 +10,7 @@ kitty, and tmux.
 | Path | What it configures |
 | --- | --- |
 | `hypr/` | Hyprland, configured with the Lua DSL (`hl.*`). Split into `config/*.lua` modules loaded by `hyprland.lua`. |
-| `noctalia/` | Noctalia shell (bar, panels, colorschemes, plugins) — `settings.json`, `colors.json`, custom `plugins/`. |
+| `noctalia/` | Noctalia shell (bar, panels, colorschemes). Noctalia 5 keeps its live config in `~/.local/state/noctalia/settings.toml`; the `*.json` files and `plugins/` here are leftovers from Noctalia 4 and are no longer read. |
 | `kitty/` | kitty terminal config and themes. |
 | `.tmux.conf` | tmux configuration. |
 | `bin/screenshot.sh` | Region screenshot via `hyprshot` + `satty` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
@@ -26,12 +26,12 @@ kitty, and tmux.
   the Noctalia workspace pills ordered, since Noctalia renders them in creation order).
 - **Default apps** — kitty (terminal), nautilus (files), firefox (browser),
   Sublime Text (editor), chromium (web apps).
-- **Autostart** — launches the Noctalia shell (`qs -c noctalia-shell`) and the polkit agent.
+- **Autostart** — launches the Noctalia shell (`noctalia --daemon`) and the polkit agent.
 
 ## Requirements
 
-Hyprland (with Lua config support, as shipped by CachyOS), `quickshell` +
-`noctalia-shell`, `kitty`, `tmux`, and for screenshots `hyprshot`, `satty`, and
+Hyprland (with Lua config support, as shipped by CachyOS), `noctalia` 5,
+`kitty`, `tmux`, and for screenshots `hyprshot`, `satty`, and
 `wl-clipboard`.
 
 ## Install
