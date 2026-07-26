@@ -12,3 +12,6 @@ require("config.misc")
 require("config.monitors")
 require("config.workspaces")
 require("config.windowrules")
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
