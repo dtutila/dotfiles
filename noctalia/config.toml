@@ -17,6 +17,39 @@
 [bar.default]
 background_opacity = 0.5  # default 1.0
 thickness = 32            # default 34
+# Shipped default minus "media" (now playing). Pinning the list means widgets
+# added to future Noctalia defaults will not show up here on their own.
+end = [
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+
+# Per-monitor bar layouts: DO NOT re-enable on 5.0.0_beta.5.
+#
+#   [bar.default.monitor."HDMI-A-1"]
+#   start = [ "workspaces" ]
+#   center = [ "clock" ]
+#   end = [ "tray", "volume" ]
+#   thickness = 28
+#
+# The bars themselves render correctly, but the presence of ANY
+# [bar.<id>.monitor."<output>"] table makes the Settings window abort the whole
+# shell on open:
+#   optional:1230 ... [_Tp = unordered_map<string,string>]: Assertion
+#   'this->_M_is_engaged()' failed.
+# Not a syntax problem -- the crash also reproduces with an empty override
+# table, with the docs' label-key form ([bar.default.monitor.hdmi] + match =
+# "HDMI-A-1"), matching by description instead of connector, and with the table
+# placed in the state settings.toml rather than here. Recheck after the next
+# Noctalia release; the runtime side of the feature already works.
 
 [shell.animation]
 speed = 0.5               # default 1.0
