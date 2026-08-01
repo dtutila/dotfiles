@@ -95,6 +95,11 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wal
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard"))
 
+-- Dictation
+-- voxtray installs to ~/.local/bin, which is not on the compositor's PATH, so call it
+-- by absolute path -- a bare "voxtray" resolves to nothing and the bind silently no-ops.
+hl.bind(mainMod .. " + CONTROL + Space", hl.dsp.exec_cmd("$HOME/.local/bin/voxtray toggle"))
+
 --------------------
 ---- WORKSPACES ----
 --------------------
