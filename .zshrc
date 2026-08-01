@@ -78,6 +78,7 @@ alias tree='eza -T'
 export JAVA_HOME=~/Applications/jdk21.0.11/
 export PATH=$JAVA_HOME/bin:$PATH
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+. "$HOME/.cargo/env" 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
