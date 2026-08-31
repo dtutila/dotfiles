@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/dtutila/.tmux/plugins/**)",
+      "Bash(tmux -V)",
+      "Bash(hyprctl workspaces *)",
+      "Bash(hyprctl monitors *)"
+    ]
+  }
+}

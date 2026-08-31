@@ -129,3 +129,14 @@ hl.window_rule({
 
     no_focus = true,
 })
+
+
+hl.window_rule({
+  match = { class = "voxtray-osd" },
+  float = true,
+  pin = true,
+  center = true,
+  no_initial_focus = true,
+  no_focus = true,
+  border_size = 0,
+})
