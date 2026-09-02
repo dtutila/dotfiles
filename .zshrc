@@ -58,13 +58,17 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 #zinit light zsh-users/zsh-completions
 #zinit light zsh-users/zsh-autosuggestions
 zinit wait lucid for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
-    blockf \
-    zsh-users/zsh-completions \
     atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
-    
+
+# Load completion definitions before initializing Zsh's completion system.
+zinit light zsh-users/zsh-completions
+
+autoload -Uz compinit
+compinit
+
+# fzf-tab must be loaded after compinit.
 zinit light Aloxaf/fzf-tab
 
 # Add in snippets
@@ -72,9 +76,6 @@ zinit snippet OMZP::git
 #zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 #zinit snippet OMZP::asdf
-
-# Load completions
-#autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
@@ -140,7 +141,11 @@ alias rm='rm -i'
 alias tree='eza -T'
 
 # Shell integrations
-(( $+commands[fzf] )) && eval "$(fzf --zsh)"
+if (( $+commands[fzf] )); then
+  eval "$(fzf --zsh)"
+  # fzf's integration also binds Tab; keep fzf-tab as the completion frontend.
+  bindkey '^I' fzf-tab-complete
+fi
 (( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
 
 #. ~/.asdf/plugins/java/set-java-home.zsh 
@@ -148,7 +153,7 @@ alias tree='eza -T'
 #. ~/.asdf/plugins/golang/set-env.zsh 
 
 
-#export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=1
 #export DOCKER_HOST=unix:///run/user/1000/docker.sock
 #nodejs
 #-- export PATH=~/.npm-global/bin:$PATH
