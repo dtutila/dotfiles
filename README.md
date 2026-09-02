@@ -13,7 +13,7 @@ kitty, and tmux.
 | `noctalia/` | Noctalia 5 shell (bar, panels, theming) — `config.toml`. See [Noctalia config layering](#noctalia-config-layering). |
 | `kitty/` | kitty terminal config and themes. |
 | `.tmux.conf` | tmux configuration. |
-| `bin/screenshot.sh` | Region screenshot via `hyprshot` + `satty` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
+| `bin/screenshot.sh` | Region screenshot via `hyprshot` + `swappy` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
 
 ### Hyprland modules (`hypr/config/`)
 
@@ -53,7 +53,7 @@ directory, so it can be split into modules later if it grows.
 ## Requirements
 
 Hyprland (with Lua config support, as shipped by CachyOS), `noctalia` 5,
-`kitty`, `tmux`, and for screenshots `hyprshot`, `satty`, and
+`kitty`, `tmux`, and for screenshots `hyprshot`, `swappy`, and
 `wl-clipboard`.
 
 ## Install

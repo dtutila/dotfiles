@@ -80,6 +80,7 @@ hl.window_rule({ match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gw
 -- Float Utility Windows
 local floatApps = {
     { class = "^(com\\.gabm\\.satty)$" },
+    { class = "^(swappy)$" },
     { class = "^(kvantummanager|qt[56]ct|nwg-look)$" },
     { class = "^(org.pulseaudio.pavucontrol|blueman-manager|nm-applet|nm-connection-editor)$" },
     { title = "^(Winetricks.*|Protontricks.*)$" },

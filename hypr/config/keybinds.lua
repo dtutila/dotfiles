@@ -85,7 +85,7 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctCall .. "brightness-down"),
 -- Noctalia 5 dropped the QML plugin API, so the old screen-toolkit plugin is gone.
 -- Screenshots are now built in; the color picker needs the community color_picker plugin.
 -- hl.bind(mainMod .. " + P",  hl.dsp.exec_cmd(noctCall .. "plugin oldirtty/color_picker:main bar pick"))
-hl.bind("Print",               hl.dsp.exec_cmd("screenshot.sh"))
+hl.bind("Print",               hl.dsp.exec_cmd("$HOME/.local/bin/screenshot.sh"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
 hl.bind(mainMod .. " + R",     hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
 
