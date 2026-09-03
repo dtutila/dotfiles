@@ -72,10 +72,14 @@ hl.window_rule({
 
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
+local opaqueDesktopApps = "^(Code|code|Postman|Chatgpt|chatgpt|google-chrome|Google-chrome|chromium|Chromium|[Xx]dg-desktop-portal-gtk)$"
 
 hl.window_rule({ match = { class = "^(firefox|zen)$" }, opacity = "1.0 override" })
 hl.window_rule({ match = { class = terminals }, opacity = "1.0 override" }) -- override opacity in favor of terminal settings for opacity
 hl.window_rule({ match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gwenview|.*vlc.*)$" }, opacity = "1.0 override" })
+-- Compositor-wide opacity makes Chromium/Electron popup surfaces and GTK file
+-- choosers translucent, which exposes blurred content from the parent window.
+hl.window_rule({ match = { class = opaqueDesktopApps }, opacity = "1.0 override" })
 
 -- Float Utility Windows
 local floatApps = {

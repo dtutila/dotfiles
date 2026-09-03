@@ -12,6 +12,8 @@ kitty, and tmux.
 | `hypr/` | Hyprland, configured with the Lua DSL (`hl.*`). Split into `config/*.lua` modules loaded by `hyprland.lua`. |
 | `noctalia/` | Noctalia 5 shell (bar, panels, theming) — `config.toml`. See [Noctalia config layering](#noctalia-config-layering). |
 | `kitty/` | kitty terminal config and themes. |
+| `gtk-3.0/`, `gtk-4.0/` | GTK settings that select the dark Adwaita variant for native dialogs. |
+| `uwsm/` | Hyprland session environment, including GTK dark-theme and desktop identity overrides. |
 | `.tmux.conf` | tmux configuration. |
 | `bin/screenshot.sh` | Region screenshot via `hyprshot` + `swappy` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
 
@@ -67,6 +69,10 @@ cd ~/src/personal/dotfiles
 ln -s "$PWD/hypr"     ~/.config/hypr
 ln -s "$PWD/kitty"    ~/.config/kitty
 ln -s "$PWD/noctalia" ~/.config/noctalia
+ln -s "$PWD/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
+ln -s "$PWD/gtk-4.0/settings.ini" ~/.config/gtk-4.0/settings.ini
+ln -s "$PWD/uwsm/env-hyprland" ~/.config/uwsm/env-hyprland
+ln -s "$PWD/electron-flags.conf" ~/.config/electron-flags.conf
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 ```
 
