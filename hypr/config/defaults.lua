@@ -1,11 +1,13 @@
 -- Hyprland default apps
 
-TERMINAL     = "kitty"
+TERMINAL = "kitty"
 FILE_MANAGER = "nautilus"
-BROWSER      = "firefox"
-EDITOR       = "subl"
-CALCULATOR   = "gnome-calculator"
-CHROMIUM     = 'chromium --password-store="gnome-libsecret"'
-CHROME       = 'google-chrome --password-store="gnome-libsecret"'
-W_A_CHROMIUM = 'chromium  --new-window --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/chromium" --profile-directory="Profile 1" --app'
-WEB_APP      = 'google-chrome --new-window --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/google-chrome" --profile-directory="Profile 1" --app'
+BROWSER = "firefox"
+EDITOR = "subl"
+CALCULATOR = "gnome-calculator"
+CHROMIUM = 'chromium --password-store="gnome-libsecret"'
+CHROME = 'google-chrome --password-store="gnome-libsecret"'
+W_A_CHROMIUM =
+	'chromium  --new-window --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/chromium" --profile-directory="Profile 1" --app'
+WEB_APP =
+	'google-chrome --new-window --password-store="gnome-libsecret" --user-data-dir="$HOME/.config/google-chrome" --profile-directory="Default" --app'
