@@ -81,6 +81,13 @@ hl.window_rule({ match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gw
 -- choosers translucent, which exposes blurred content from the parent window.
 hl.window_rule({ match = { class = opaqueDesktopApps }, opacity = "1.0 override" })
 
+-- Keep ChatGPT context-menu transparent margins free of compositor blur.
+hl.window_rule({
+    name = "chatgpt-popup-no-blur",
+    match = { class = "^(ChatGPT|Chatgpt|chatgpt)$" },
+    no_blur = true,
+})
+
 -- Float Utility Windows
 local floatApps = {
     { class = "^(com\\.gabm\\.satty)$" },

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Slack Wayland
+StartupWMClass=Slack
+Comment=Slack Desktop
+GenericName=Slack Client for Linux
+# Native Wayland rendering and text-input-v3 integration for input methods.
+Exec=flatpak run --file-forwarding com.slack.Slack --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3 --password-store=gnome-libsecret @@u %U @@
+Icon=com.slack.Slack
+Type=Application
+Terminal=false
+StartupNotify=true
+Categories=Network;InstantMessaging;
+MimeType=x-scheme-handler/slack;
+X-GNOME-UsesNotifications=true
+X-Flatpak=com.slack.Slack

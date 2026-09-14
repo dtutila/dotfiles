@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Postman w
+GenericName=REST Client
+Comment=Build and test APIs
+MimeType=x-scheme-handler/postman;
+Exec=flatpak run --command=Postman --file-forwarding com.getpostman.Postman --password-store=gnome-libsecret --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto @@u %U @@
+StartupNotify=true
+Terminal=false
+Icon=com.getpostman.Postman
+Type=Application
+Categories=Development;WebDevelopment;
+StartupWMClass=postman
+X-Flatpak=com.getpostman.Postman
