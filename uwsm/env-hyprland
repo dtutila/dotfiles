@@ -5,3 +5,12 @@ export XCURSOR_THEME=Adwaita
 export XCURSOR_SIZE=24
 export GDK_BACKEND=wayland,x11,*
 export QT_QPA_PLATFORM='wayland;xcb'
+export _JAVA_AWT_WM_NONREPARENTING=1
+export TERMINAL=kitty
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Salesforce CLI: keep the auth encryption key in ~/.sfdx/key.json instead of
+# GNOME Keyring. Intermittent secret-tool lookup failures make sf silently
+# regenerate the key, which breaks every stored org auth (AuthDecryptError).
+export SF_USE_GENERIC_UNIX_KEYCHAIN=true
