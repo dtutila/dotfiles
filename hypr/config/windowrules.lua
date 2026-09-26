@@ -1,3 +1,5 @@
+-- Remember the size of floating windows per app
+hl.window_rule({ match = { float = true }, persistent_size = true })
 
 -- Picture-in-Picture
 hl.window_rule({
@@ -14,6 +16,7 @@ local gamingApps = "^(steam_app.*|gamescope)$"
 local gamingWorkspace = "name:gaming"
 
 hl.window_rule({ match = { content = "game" }, workspace = gamingWorkspace })
+hl.window_rule({ match = { xdg_tag = "^(.*game.*)$" }, workspace = gamingWorkspace, fullscreen_state = 2, content = "game", sync_fullscreen = true })
 hl.window_rule({ match = { class = gamingApps }, workspace = gamingWorkspace })
 hl.window_rule({ match = { class = "^(steam)$", title = "^(Friends List)$" }, float = true })
 hl.window_rule({
@@ -49,8 +52,8 @@ hl.window_rule({
 -- Apps
 local primaryWorkspace = 1
 
-hl.window_rule({ match = { class = "^(.*\\.exe)$", float = true }, primaryWorkspace, center = true, fullscreen_state = 0 })
-hl.window_rule({ match = { class = "^(vesktop|discord)$" }, primaryWorkspace })
+hl.window_rule({ match = { class = "^(.*\\.exe)$" }, float = true, workspace = primaryWorkspace, center = true, fullscreen_state = 0 })
+hl.window_rule({ match = { class = "^(vesktop|discord)$" }, workspace = primaryWorkspace })
 hl.window_rule({ match = { class = "^(.*[Cc]alculator.*)$" }, float = true, size = "380 616" })
 hl.window_rule({ match = { class = "^(org.kde.keditfiletype)$" }, float = true })
 hl.window_rule({ match = { class = "^(org.kde.ark)$" }, size = "(monitor_w*0.40) (monitor_h*0.40)" })
@@ -74,7 +77,7 @@ hl.window_rule({
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
 local opaqueDesktopApps = "^(Code|code|Postman|Chatgpt|chatgpt|google-chrome|Google-chrome|chromium|Chromium|[Xx]dg-desktop-portal-gtk)$"
 
-hl.window_rule({ match = { class = "^(firefox|zen)$" }, opacity = "1.0 override" })
+hl.window_rule({ match = { class = "^(firefox|org\\.mozilla\\.firefox|zen)$" }, opacity = "1.0 override" })
 hl.window_rule({ match = { class = terminals }, opacity = "1.0 override" }) -- override opacity in favor of terminal settings for opacity
 hl.window_rule({ match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gwenview|.*vlc.*)$" }, opacity = "1.0 override" })
 -- Compositor-wide opacity makes Chromium/Electron popup surfaces and GTK file
@@ -142,6 +145,33 @@ hl.window_rule({
     no_focus = true,
 })
 
+
+-- Keep password managers out of screen shares
+hl.window_rule({ match = { class = "^(1[pP]assword|com\\.onepassword\\.OnePassword)$" }, no_screen_share = true })
+
+-- Hide browser "... is sharing your screen" indicator windows
+hl.window_rule({
+    match = {
+        class = "^(google-chrome|[Cc]hromium|brave-origin|brave-browser)$",
+        title = "^.* is sharing (your screen|a window|a tab|this tab)\\.?$",
+    },
+    workspace = "special silent",
+})
+
+-- No border or animation on the slurp region selection used by screenshots
+hl.layer_rule({ match = { namespace = "selection" }, no_anim = true, animation = "none" })
+
+-- Blur behind translucent Noctalia surfaces (bar background_opacity = 0.5)
+hl.layer_rule({
+    name = "noctalia",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim = true,
+    ignore_alpha = 0.2,
+    blur = true,
+    blur_popups = true,
+})
 
 hl.window_rule({
   match = { class = "voxtray-osd" },

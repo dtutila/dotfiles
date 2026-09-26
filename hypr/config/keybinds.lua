@@ -52,10 +52,10 @@ hl.bind(mainMod .. " + Space",      hl.dsp.exec_cmd(noctCall .. "panel-toggle la
 hl.bind(mainMod .. " + period",     hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher /emoji"))
 
 -- Web apps
-hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(WEB_APP .. '="https://web.whatsapp.com/"'))
-hl.bind(mainMod .. " + I",         hl.dsp.exec_cmd(WEB_APP .. '="https://claude.ai/"'))
-hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd(WEB_APP .. '="https://chatgpt.com/"'))
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(WEB_APP .. '="https://x.com/"'))
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(launchPrefix .. WEB_APP .. '="https://web.whatsapp.com/"'))
+hl.bind(mainMod .. " + I",         hl.dsp.exec_cmd(launchPrefix .. WEB_APP .. '="https://claude.ai/"'))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd(launchPrefix .. WEB_APP .. '="https://chatgpt.com/"'))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(launchPrefix .. WEB_APP .. '="https://x.com/"'))
 
 ---------------------------
 ---- HARDWARE CONTROLS ----
