@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Obsidian
+GenericName=Knowledge base
+Comment=Markdown-based knowledge base
+# Native Wayland rendering, text-input-v3 integration for input methods, and
+# GNOME Keyring (libsecret) for safeStorage-encrypted secrets.
+Exec=/home/dtutila/Applications/Obsidian.AppImage --ozone-platform=wayland --enable-features=UseOzonePlatform,WaylandWindowDecorations --enable-wayland-ime --wayland-text-input-version=3 --password-store=gnome-libsecret %U
+Icon=obsidian
+Type=Application
+Terminal=false
+StartupNotify=true
+StartupWMClass=obsidian
+Categories=Office;
+MimeType=x-scheme-handler/obsidian;

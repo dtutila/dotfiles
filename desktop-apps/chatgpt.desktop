@@ -1,9 +1,11 @@
 [Desktop Entry]
-Name=ChatGPT w
+Name=ChatGPT www
 GenericName=AI assistant
 Comment=ChatGPT by OpenAI
-# Native Wayland rendering and text-input-v3 integration for input methods.
-Exec=chatgpt --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --wayland-text-input-version=3 %U
+# Force native Wayland: this build ignores --ozone-platform-hint and falls back
+# to XWayland, where context menus become ARGB override-redirect windows that
+# Hyprland blurs. Native xdg_popups avoid that (decoration:blur:popups = false).
+Exec=chatgpt --ozone-platform=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime --wayland-text-input-version=3 %U
 Icon=chatgpt
 Type=Application
 Terminal=false
