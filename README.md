@@ -72,8 +72,12 @@ ln -s "$PWD/noctalia" ~/.config/noctalia
 ln -s "$PWD/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
 ln -s "$PWD/gtk-4.0/settings.ini" ~/.config/gtk-4.0/settings.ini
 ln -s "$PWD/uwsm/env-hyprland" ~/.config/uwsm/env-hyprland
-ln -s "$PWD/electron-flags.conf" ~/.config/electron-flags.conf
+ln -s "$PWD/fontconfig" ~/.config/fontconfig
+ln -s "$PWD/xdg-terminals.list" ~/.config/xdg-terminals.list
+mkdir -p ~/.config/systemd/user/app.slice.d ~/.config/systemd/user/wayland-wm@hyprland.desktop.service.d
+ln -s "$PWD/systemd/user/app.slice.d/10-oomd.conf" ~/.config/systemd/user/app.slice.d/10-oomd.conf
+ln -s "$PWD/systemd/user/wayland-wm@hyprland.desktop.service.d/10-oomd.conf" ~/.config/systemd/user/wayland-wm@hyprland.desktop.service.d/10-oomd.conf
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 ```
 
-Then reload Hyprland (`hyprctl reload`) or log out and back in.
+Then run `systemctl --user daemon-reload` and reload Hyprland (`hyprctl reload`), or log out and back in.
