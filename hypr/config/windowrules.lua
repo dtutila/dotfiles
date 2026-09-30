@@ -182,3 +182,33 @@ hl.window_rule({
   no_focus = true,
   border_size = 0,
 })
+
+-- OpenWhispr (runs under XWayland; all windows share class "open-whispr")
+-- Placed after the "float -> 50% 50%" catch-all so these positions win.
+local whisprClass = "^(open-whispr)$"
+
+-- Control panel: float it instead of tiling (meeting mode snaps it to the side itself)
+hl.window_rule({
+    match  = { class = whisprClass, title = "^(Control Panel)$" },
+    float  = true,
+    center = true,
+    size   = "1200 800",
+})
+
+-- Dictation pill, notifications and the assistant panel: always on the HDMI
+-- monitor at bottom center, above other windows, without stealing focus
+-- from the text field being dictated into.
+hl.window_rule({
+    match            = { class = whisprClass, title = "^(Voice Recorder|OpenWhispr)$" },
+    float            = true,
+    pin              = true,
+    monitor          = "HDMI-A-1",
+    move             = { "(monitor_w - window_w) * 0.5", "monitor_h - window_h - 40" },
+    no_initial_focus = true,
+    border_size      = 0,
+    rounding         = 0,
+    no_shadow        = true,
+    no_blur          = true,
+    no_anim          = true,
+    opacity          = "1.0 override",
+})

@@ -100,6 +100,17 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard")
 -- by absolute path -- a bare "voxtray" resolves to nothing and the bind silently no-ops.
 hl.bind(mainMod .. " + CONTROL + Space", hl.dsp.exec_cmd("$HOME/.local/bin/voxtray toggle"))
 
+-- OpenWhispr
+-- XDG_CURRENT_DESKTOP=Hyprland:GNOME (uwsm/env-hyprland) makes OpenWhispr pick its
+-- GNOME backend, which registers hotkeys in gsettings -- Hyprland never sees them.
+-- Its D-Bus service still runs, so bind the keys here and call it directly.
+-- Keep the key combos in sync with OpenWhispr's settings. Dictation must use "Tap"
+-- activation mode: the GNOME D-Bus API has no key-up event, so "Hold" ignores Toggle.
+local whispr = "dbus-send --session --type=method_call --dest=com.openwhispr.App /com/openwhispr/App com.openwhispr.App."
+hl.bind("F8",                      hl.dsp.exec_cmd(whispr .. "Toggle"))
+hl.bind("CONTROL + SHIFT + Space", hl.dsp.exec_cmd(whispr .. "ToggleVoiceAgent"))
+hl.bind("CONTROL + SHIFT + K",     hl.dsp.exec_cmd(whispr .. "ToggleMeeting"))
+
 --------------------
 ---- WORKSPACES ----
 --------------------

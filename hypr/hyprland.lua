@@ -16,3 +16,4 @@ require("config.windowrules")
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
+pcall(require, "/home/dtutila/.config/hypr/openwhispr-binds.lua")
