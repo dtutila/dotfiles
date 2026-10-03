@@ -109,6 +109,19 @@ hl.window_rule({ match = { float = true }, move = "50% 50%" })
 -- Placed after the "float -> 50% 50%" catch-all above so `center` wins.
 hl.window_rule({ match = { class = "^(Windscribe)$" }, float = true, center = true })
 
+-- LibreOffice import dialogs (e.g. "Text Import - [file.csv]") open as plain
+-- "soffice" toplevels and would tile otherwise.
+hl.window_rule({ match = { class = "^(soffice)$", title = "^(.* Import)( - .*)?$" }, float = true, center = true })
+
+-- VMware dialogs and helper windows (XWayland, classes "Vmware",
+-- "Vmware-modconfig", "Vmware-netcfg", ...). Keep the main Workstation
+-- window, titled "[<vm> - ]VMware Workstation", tiled.
+hl.window_rule({
+    match  = { class = "^([Vv]mware.*)$", title = "negative:^(.*VMware Workstation)$" },
+    float  = true,
+    center = true,
+})
+
 -- Float Common Modals
 local modalMatches = {
     { title = "^(Open|Authentication Required|Add Folder to Workspace|Choose Files|Save As|Confirm to replace files|File Operation Progress)$" },
