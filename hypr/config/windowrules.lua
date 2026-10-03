@@ -115,9 +115,10 @@ hl.window_rule({ match = { class = "^(soffice)$", title = "^(.* Import)( - .*)?$
 
 -- VMware dialogs and helper windows (XWayland, classes "Vmware",
 -- "Vmware-modconfig", "Vmware-netcfg", ...). Keep the main Workstation
--- window, titled "[<vm> - ]VMware Workstation", tiled.
+-- window, titled "[<vm> - ]VMware Workstation", tiled, and leave menus and
+-- dropdowns (managed popups titled just "vmware") where the app places them.
 hl.window_rule({
-    match  = { class = "^([Vv]mware.*)$", title = "negative:^(.*VMware Workstation)$" },
+    match  = { class = "^([Vv]mware.*)$", title = "negative:^(\\s*|vmware|.*VMware Workstation)$" },
     float  = true,
     center = true,
 })
