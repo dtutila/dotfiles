@@ -14,6 +14,7 @@ kitty, and tmux.
 | `kitty/` | kitty terminal config and themes. |
 | `gtk-3.0/`, `gtk-4.0/` | GTK settings that select the dark Adwaita variant for native dialogs. |
 | `uwsm/` | Hyprland session environment, including GTK dark-theme and desktop identity overrides. |
+| `wireplumber/` | WirePlumber drop-ins for the Jabra Link 380 (Evolve2 75): rank it above every other speaker and mic so it becomes the default whenever it is plugged in. |
 | `.tmux.conf` | tmux configuration. |
 | `bin/screenshot.sh` | Region screenshot via `hyprshot` + `swappy` (annotate, copy to clipboard, save to `~/Pictures/Screenshots`). |
 
@@ -73,6 +74,7 @@ ln -s "$PWD/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
 ln -s "$PWD/gtk-4.0/settings.ini" ~/.config/gtk-4.0/settings.ini
 ln -s "$PWD/uwsm/env-hyprland" ~/.config/uwsm/env-hyprland
 ln -s "$PWD/fontconfig" ~/.config/fontconfig
+ln -s "$PWD/wireplumber" ~/.config/wireplumber
 ln -s "$PWD/xdg-terminals.list" ~/.config/xdg-terminals.list
 mkdir -p ~/.config/systemd/user/app.slice.d ~/.config/systemd/user/wayland-wm@hyprland.desktop.service.d
 ln -s "$PWD/systemd/user/app.slice.d/10-oomd.conf" ~/.config/systemd/user/app.slice.d/10-oomd.conf
@@ -80,4 +82,4 @@ ln -s "$PWD/systemd/user/wayland-wm@hyprland.desktop.service.d/10-oomd.conf" ~/.
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 ```
 
-Then run `systemctl --user daemon-reload` and reload Hyprland (`hyprctl reload`), or log out and back in.
+Then run `systemctl --user daemon-reload`, `systemctl --user restart wireplumber`, and reload Hyprland (`hyprctl reload`), or log out and back in.
