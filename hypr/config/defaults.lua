@@ -5,6 +5,7 @@ FILE_MANAGER = "nautilus"
 BROWSER = "firefox"
 EDITOR = "subl"
 CALCULATOR = "gnome-calculator"
+MUSIC = "flatpak run com.spotify.Client"
 CHROMIUM = 'chromium --password-store="gnome-libsecret"'
 CHROME = 'google-chrome --password-store="gnome-libsecret"'
 W_A_CHROMIUM =

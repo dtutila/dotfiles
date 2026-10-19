@@ -149,6 +149,24 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())
 
+-- Spotify scratchpad: launch Spotify if it has no window yet, otherwise show/hide it.
+-- The window rule in windowrules.lua keeps every Spotify window on special:spotify.
+hl.bind(mainMod .. " + CONTROL + S", function()
+    for _, w in ipairs(hl.get_windows({ mapped = true })) do
+        if w.class:lower() == "spotify" then
+            hl.dispatch(hl.dsp.workspace.toggle_special("spotify"))
+            -- A floating window keeps its offset from the last monitor it was shown on,
+            -- which pushes it half off the portrait HDMI-A-1, so re-center it wherever it appears.
+            local special = hl.get_active_special_workspace()
+            if special and special.name == "special:spotify" then
+                hl.dispatch(hl.dsp.window.center({ window = w }))
+            end
+            return
+        end
+    end
+    hl.exec_cmd(launchPrefix .. MUSIC)
+end)
+
 -----------------------
 ---- NOTIFICATIONS ----
 -----------------------

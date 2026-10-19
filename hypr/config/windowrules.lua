@@ -109,6 +109,17 @@ hl.window_rule({ match = { float = true }, move = "50% 50%" })
 -- Placed after the "float -> 50% 50%" catch-all above so `center` wins.
 hl.window_rule({ match = { class = "^(Windscribe)$" }, float = true, center = true })
 
+-- Spotify only ever opens on its scratchpad (toggled with SUPER + CONTROL + S),
+-- as a centered 720p floating window. Placed after the "float -> 50% 50%"
+-- catch-all above so `center` wins.
+hl.window_rule({
+    match     = { class = "^([Ss]potify)$" },
+    workspace = "special:spotify",
+    float     = true,
+    size      = "1280 720",
+    center    = true,
+})
+
 -- LibreOffice import dialogs (e.g. "Text Import - [file.csv]") open as plain
 -- "soffice" toplevels and would tile otherwise.
 hl.window_rule({ match = { class = "^(soffice)$", title = "^(.* Import)( - .*)?$" }, float = true, center = true })
